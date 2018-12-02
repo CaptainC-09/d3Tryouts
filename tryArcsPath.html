@@ -1,0 +1,44 @@
+<<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Leth's path Simply</title>
+  	<script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <script>
+
+      var canvas = d3.select("body")
+                        .append("svg")
+                        .attr("width", 500)
+                        .attr("height", 500);
+
+      var data = [
+                {x: 90, y: 10},
+                {x: 99, y: 30},
+                {x: 70, y: 50},
+                {x: 78, y: 60},
+                {x: 50, y: 80},
+                {x: 56, y: 100},
+                {x: 32, y: 120},
+                {x: 40, y: 140},
+                {x: 56, y: 160}
+      ];
+      var group = canvas.append("g")
+                        .attr("transform", "translate(100, 100)");
+
+      var r = 100;
+      var p = Math.PI *2;
+
+      var arc = d3.svg.arc()
+                    .innerRadius(r -20)
+                    .outerRadius(r)
+                    .startAngle(0)
+                    .endAngle(p);
+
+      group.append("path")
+                .attr("d", arc);
+
+    </script>
+  </body>
+</html>

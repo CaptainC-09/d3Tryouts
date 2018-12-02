@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lets do transition</title>
+	<script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+	<script>
+		var canvas 		= d3.select("body")
+							.append("svg")
+							.attr("width", 1000)
+							.attr("height", 1000);
+
+		var circle		= canvas.append("circle")
+								.attr("cx", 100)
+								.attr("cy", 100)
+								.attr("r", 50);
+		circle.transition()
+				.duration(1000)
+				.attr("cx", 150)
+				.transition()
+				.attr("cy", 150)
+				.transition()
+				.attr("r", 80)
+				.each("end", function turnRed() { d3.select(this).attr("fill", "red") });
+	</script>
+</body>
+</html>

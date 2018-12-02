@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Let's do DOM d3 js</title>
+	<script src="https://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+	<script>
+
+	var data		= [10, 20];
+	var canvas 		= d3.select("body")
+							.append("svg")
+							.attr("width", 1000)
+							.attr("height", 1000);
+
+	var circle2		= canvas.append("circle")
+							.attr("cx", 100)
+							.attr("cy", 100)
+							.attr("r", 20);
+
+	var circles 		= canvas.selectAll("circle")
+							.data(data)
+							.attr("fill", "red")
+							.enter()
+								.append("circle")
+								.attr("cx", 250)
+								.attr("cy", 250)
+								.attr("r", 100)
+								.attr("fill", "green");
+	
+	</script>
+</body>
+</html>

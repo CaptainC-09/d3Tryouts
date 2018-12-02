@@ -1,0 +1,53 @@
+<<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Leth's path Simply</title>
+  	<script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <script>
+
+      var canvas = d3.select("body")
+                        .append("svg")
+                        .attr("width", 500)
+                        .attr("height", 500);
+
+      var data = [
+                {x: 90, y: 10},
+                {x: 99, y: 30},
+                {x: 70, y: 50},
+                {x: 78, y: 60},
+                {x: 50, y: 80},
+                {x: 56, y: 100},
+                {x: 32, y: 120},
+                {x: 40, y: 140},
+                {x: 56, y: 160}
+      ];
+      var group = canvas.append("g")
+                        .attr("transform", "translate(100, 100)");
+      var line = d3.svg.line()
+                    .x(function (d) { return d.x; })
+                    .y(function (d) { return d.y; });
+
+      group.selectAll("path")
+            .data([data])
+            .enter()
+                .append("path")
+                .transition()
+                .each("start", function turnRed() { d3.select(this).attr("stroke", "red").attr("stroke-width", 40) })
+                .duration(1000)
+                .attr("d", line)
+                .transition()
+				.attr("cy", 150)
+                .duration(2000)
+                .attr("fill", "none")
+                .attr("stroke", "#777")
+                .attr("stroke-width", 20)
+                .transition()
+                .each("end", function turnGreen() { d3.select(this).attr("stroke", "green").attr("stroke-width", 60) })
+                .duration(2000);
+
+    </script>
+  </body>
+</html>

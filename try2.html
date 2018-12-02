@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Let's D3</title>
+	<script src="https://d3js.org/d3.v5.js"></script>
+</head>
+<body>
+	<script>
+		var canvas = d3.select("body")
+						.append("svg")
+						.attr("width", 1000)
+						.attr("height", 1000);
+		var dataArray = [20, 50, 80];
+
+		var bars = canvas.selectAll("rect")
+						.data(dataArray)
+						.enter()
+							.append("rect")
+							.attr("width", function(d){ return d*10; })
+							.attr("height", 85)
+							.attr("y", function(d, i) {return i*170});
+
+
+	</script>
+
+</body>
+</html>
